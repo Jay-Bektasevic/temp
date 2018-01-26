@@ -28,3 +28,12 @@ for (i in 1:24) {
 }
 
 round(ACF, 6)[1:22] == round(as.vector(acf_ap$acf), 6)
+
+#    test wheather the time series is stationary
+
+require(tseries)
+adf.test(rnorm(100)) # stationary b/c p-value is small
+
+adf.test(diffinv(rnorm(100))) # not stationary data becasue the p-value is large 
+
+
